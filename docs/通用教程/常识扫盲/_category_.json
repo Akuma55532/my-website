@@ -1,0 +1,8 @@
+{
+  "label": "常识扫盲",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "一些你需要知道的常识。"
+  }
+}
