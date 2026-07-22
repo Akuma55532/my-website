@@ -5,6 +5,8 @@
 /build
 /pkgs
 
+/.agents
+
 # Generated files
 .docusaurus
 .cache-loader
