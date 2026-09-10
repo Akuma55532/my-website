@@ -1,0 +1,470 @@
+{
+  "images": [
+    {
+      "file": "图片.png",
+      "size": [
+        967,
+        470
+      ],
+      "pixels_sha256": "1144e6f34e2dd12a029ac662d008aca04db8bffa58f52ccc4f8cd9502de91adc"
+    },
+    {
+      "file": "图片(1).png",
+      "size": [
+        427,
+        356
+      ],
+      "pixels_sha256": "de79b72070aa23e64b6b1781bb700c25b4e6ee28867222058eed1fefcc295562"
+    },
+    {
+      "file": "图片(2).png",
+      "size": [
+        381,
+        131
+      ],
+      "pixels_sha256": "d72e9906644d600a0302f6a121a319fa3c370fc413e5d4eb9715c201da669fb5"
+    },
+    {
+      "file": "图片(3).png",
+      "size": [
+        293,
+        98
+      ],
+      "pixels_sha256": "155e28c095d9ee32312a4f5bdb847b076db877ac1105e892ca8be67ff3d70630"
+    },
+    {
+      "file": "图片(4).png",
+      "size": [
+        427,
+        356
+      ],
+      "pixels_sha256": "4796b7495112b674e6fb6c3437d1196d2397f81640b39b7432cf6889b7cfe06a"
+    },
+    {
+      "file": "图片(5).png",
+      "size": [
+        1083,
+        257
+      ],
+      "pixels_sha256": "9daea8d9063258d9b8f9b75a847fad8d6e9488cfc5dd49d8818ab6d56c878cde"
+    },
+    {
+      "file": "图片(6).png",
+      "size": [
+        1107,
+        249
+      ],
+      "pixels_sha256": "c2e32fdd28c8e5fac56d26a8049642a1c247818fc601d19b457c2b7a1375bba5"
+    },
+    {
+      "file": "图片(7).png",
+      "size": [
+        1107,
+        402
+      ],
+      "pixels_sha256": "7f1dbed8e1895982f3f3a84c3d30afc10c7c284b4b564121fa18a7f2b2f878e4"
+    },
+    {
+      "file": "图片(8).png",
+      "size": [
+        1107,
+        533
+      ],
+      "pixels_sha256": "e0cf0b782b4a54ad1173ea6354676f4ec94440081ec3a41c86f6ea0720143df1"
+    },
+    {
+      "file": "图片(9).png",
+      "size": [
+        997,
+        152
+      ],
+      "pixels_sha256": "fc669b7b59fe182bc6f86d16bb514dffb014a0c524a65ff31932b21c60c9edc5"
+    },
+    {
+      "file": "图片(10).png",
+      "size": [
+        546,
+        137
+      ],
+      "pixels_sha256": "b5fc98bb94ab9b44f6cee33c6c03f7f6f6adbf08af290f19e37bd298dbe46da0"
+    },
+    {
+      "file": "图片(11).png",
+      "size": [
+        739,
+        163
+      ],
+      "pixels_sha256": "f4887c4fd79ca5be5a9bc9adc7b427625ccdd8fbc9977dc1e462651427ea8403"
+    },
+    {
+      "file": "图片(12).png",
+      "size": [
+        571,
+        326
+      ],
+      "pixels_sha256": "f7f0a6439a1f82eeb259aab93a2dac518eaab3025d7954042028b142da963131"
+    },
+    {
+      "file": "图片(13).png",
+      "size": [
+        416,
+        362
+      ],
+      "pixels_sha256": "1db9f1c92f69fa7df59cd00994d8539148e6b3b822ee5b02dc75e2b7d2c6fc98"
+    },
+    {
+      "file": "图片(14).png",
+      "size": [
+        374,
+        205
+      ],
+      "pixels_sha256": "2ad2bc40865d43de82717299eefbf2ec6c9aedbf938f54ed8ba4cc980b7a5901"
+    },
+    {
+      "file": "图片(15).png",
+      "size": [
+        594,
+        116
+      ],
+      "pixels_sha256": "166a3354dd775bc513fae5cf1a60f38e401014a2e62d7bc039b1b1d4d9a8e936"
+    },
+    {
+      "file": "图片(16).png",
+      "size": [
+        513,
+        151
+      ],
+      "pixels_sha256": "b9b79d86dbbb76295ded67c031117f2b9f682bb223cb2a00073a6c50c6ff7451"
+    },
+    {
+      "file": "图片(17).png",
+      "size": [
+        974,
+        731
+      ],
+      "pixels_sha256": "30d874a1341f8747044f764ea7bc73551e7817e78b9aee9929114454116ced7c"
+    },
+    {
+      "file": "图片(18).png",
+      "size": [
+        945,
+        629
+      ],
+      "pixels_sha256": "e1106f398fbc8a2564846e677b12f58957381ad8e2d23e53367ec453d1c945d7"
+    },
+    {
+      "file": "图片(19).png",
+      "size": [
+        606,
+        211
+      ],
+      "pixels_sha256": "ea09e83d6966ef290220d8a3921e86248fdc4b845cdf609a5adcd5418f73c453"
+    },
+    {
+      "file": "图片(20).png",
+      "size": [
+        654,
+        599
+      ],
+      "pixels_sha256": "4948baea1a8c087bed4eeaa8fb05288b547e201549159c8b04c0802d9fbe6ea3"
+    },
+    {
+      "file": "图片(21).png",
+      "size": [
+        635,
+        487
+      ],
+      "pixels_sha256": "8206125d51652b135cc0c4c6ad4bf78624813b3959d337d88d3d5a161d54827d"
+    },
+    {
+      "file": "图片(22).png",
+      "size": [
+        1107,
+        514
+      ],
+      "pixels_sha256": "20895a60c777d60797308a161eed5fde2936a8223cefa231f9020c01b670ed5b"
+    },
+    {
+      "file": "图片(23).png",
+      "size": [
+        944,
+        517
+      ],
+      "pixels_sha256": "0372092e98b7e7288934a8591b4e3d1b4361df4aba2c0db638312af396d246e0"
+    },
+    {
+      "file": "图片(24).png",
+      "size": [
+        1054,
+        502
+      ],
+      "pixels_sha256": "585b93e41075674a5d9f55071cddb545d7508df9019e786685b271fa64b880e1"
+    },
+    {
+      "file": "图片(25).png",
+      "size": [
+        389,
+        305
+      ],
+      "pixels_sha256": "0974b98f153809a310448bcf35fae9d131e7fccdc4c57071b4ebd35a689e9f35"
+    },
+    {
+      "file": "图片(26).png",
+      "size": [
+        566,
+        356
+      ],
+      "pixels_sha256": "101079050bd4a3baf84afb5575e3fd04d68cea2a828379be88177c8ae8d3625b"
+    },
+    {
+      "file": "图片(27).png",
+      "size": [
+        778,
+        370
+      ],
+      "pixels_sha256": "5e3028bf8b4aa1809a287c26e5a1890c7f9995b13c1ce60b60d9afa4628c2e6e"
+    },
+    {
+      "file": "图片(28).png",
+      "size": [
+        1106,
+        454
+      ],
+      "pixels_sha256": "eaba91af81900af5c996e99f14b31d7ba867dc1db90623745c261376a623935b"
+    },
+    {
+      "file": "图片(29).png",
+      "size": [
+        1107,
+        533
+      ],
+      "pixels_sha256": "80f8a8bd8fb85676aec69f76f9b849a6ae7211ad5b20e469b8d392ad71511b2c"
+    },
+    {
+      "file": "图片(30).png",
+      "size": [
+        796,
+        809
+      ],
+      "pixels_sha256": "7495434c26f83a09b81daa7c9468ab549a5881ad4cbbcb4f03444472bc514807"
+    },
+    {
+      "file": "图片(31).png",
+      "size": [
+        751,
+        181
+      ],
+      "pixels_sha256": "1af20830272c31d22722525373cf8fb966df48dafe4bea78cb8dcda3d6e25558"
+    },
+    {
+      "file": "图片(32).png",
+      "size": [
+        700,
+        106
+      ],
+      "pixels_sha256": "b43275b5228a22cb6e41768930b1437457c21d98488e242741ca1366ec312d19"
+    },
+    {
+      "file": "图片(33).png",
+      "size": [
+        554,
+        127
+      ],
+      "pixels_sha256": "358eff0a8eb7c54bb98e3e56423bcca063c9688e22ac1f56f8dbc5178129b438"
+    },
+    {
+      "file": "图片(34).png",
+      "size": [
+        1087,
+        799
+      ],
+      "pixels_sha256": "76cb0b0f6c6887b1c34ad181274696c0f28644a0b04915be0498032e8d007504"
+    },
+    {
+      "file": "图片(35).png",
+      "size": [
+        1107,
+        386
+      ],
+      "pixels_sha256": "efb74e00ff915662e3c0923cdcb9d37c8707531592badee2e6481dac9299e215"
+    },
+    {
+      "file": "图片(36).png",
+      "size": [
+        1466,
+        312
+      ],
+      "pixels_sha256": "674da43530eda2073b1cf8b375566faed2a26ef9282db6303c1198af53f03359"
+    },
+    {
+      "file": "图片(37).png",
+      "size": [
+        1654,
+        306
+      ],
+      "pixels_sha256": "1a05a5eb7c9cbbf02b75c39bd3b1eb491ec3d6b7683c46acc9f5aecbc44940a0"
+    },
+    {
+      "file": "图片(38).png",
+      "size": [
+        1650,
+        274
+      ],
+      "pixels_sha256": "1a11c431087d34f67197bff090dee1b7573988175d06c6acb4b6b326481cf4bb"
+    },
+    {
+      "file": "图片(39).png",
+      "size": [
+        1702,
+        308
+      ],
+      "pixels_sha256": "41b107631fdf5f7267dcc5d7f3541d2b56131c39da329fb7dec250e728940f68"
+    }
+  ],
+  "similar_pairs": [
+    {
+      "a": "图片(1).png",
+      "b": "图片(4).png",
+      "diff": 0.3193359375,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(6).png",
+      "b": "图片(7).png",
+      "diff": 8.8525390625,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(8).png",
+      "b": "图片(23).png",
+      "diff": 10.9990234375,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(8).png",
+      "b": "图片(26).png",
+      "diff": 11.49609375,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(8).png",
+      "b": "图片(27).png",
+      "diff": 10.5078125,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(8).png",
+      "b": "图片(28).png",
+      "diff": 11.0419921875,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(8).png",
+      "b": "图片(30).png",
+      "diff": 11.54296875,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(8).png",
+      "b": "图片(31).png",
+      "diff": 11.5966796875,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(11).png",
+      "b": "图片(23).png",
+      "diff": 11.2841796875,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(11).png",
+      "b": "图片(27).png",
+      "diff": 11.82421875,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(23).png",
+      "b": "图片(25).png",
+      "diff": 11.0322265625,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(23).png",
+      "b": "图片(26).png",
+      "diff": 10.2373046875,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(23).png",
+      "b": "图片(27).png",
+      "diff": 9.2216796875,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(23).png",
+      "b": "图片(28).png",
+      "diff": 10.08984375,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(25).png",
+      "b": "图片(26).png",
+      "diff": 11.34375,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(25).png",
+      "b": "图片(27).png",
+      "diff": 9.857421875,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(25).png",
+      "b": "图片(28).png",
+      "diff": 11.7060546875,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(26).png",
+      "b": "图片(27).png",
+      "diff": 10.146484375,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(27).png",
+      "b": "图片(28).png",
+      "diff": 9.1259765625,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(27).png",
+      "b": "图片(30).png",
+      "diff": 11.341796875,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(27).png",
+      "b": "图片(31).png",
+      "diff": 11.8583984375,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(36).png",
+      "b": "图片(37).png",
+      "diff": 11.8837890625,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(36).png",
+      "b": "图片(39).png",
+      "diff": 9.9326171875,
+      "identical_pixels": false
+    },
+    {
+      "a": "图片(37).png",
+      "b": "图片(39).png",
+      "diff": 4.443359375,
+      "identical_pixels": false
+    }
+  ]
+}
