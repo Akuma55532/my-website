@@ -1,0 +1,1044 @@
+
+===== PAGE 1 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 1 页 共 36 页 
+ 
+幻思创新——VINS-ROS-EGO 工程开发指南 
+注：如遇无法解决的问题，请联系幻思创新的工程师寻求协助。  
+ 
+修订日志： 
+版本       日期       更新内容 
+V2.1.3 2025.1.20      1、新增“启用 VINS 定位”指南。（P18，点击跳转） 
+2、新增“启用 EGO 和下发目标点”指南。（P24，点击
+跳转） 
+     
+V2.1.4 2025.3.26     1、更新了“启用 VINS（VSLAM）定位” 章节中的
+“固件版本号要求”和“配置飞控固件参数”。
+（P18，P19，点击跳转）     
+ 
+V2.1.5 2025.4.7     1、更新了“开机自启动” 章节中的“（4）配置
+auto_ap.sh 开机自动运行”。（P17，点击跳转）     
+V2.1.6 2025.5.7     1、更新了“启用 VINS（VSLAM）定位” 章节中的
+“1、配置飞控固件参数”——>波特率设置。
+（P19，点击跳转）   
+2、增加了“启用 VINS（VSLAM）定位” 章节中的
+“3、PID 调参”。（P20，点击跳转）    
+ 
+V2.1.7 2025.5.25     1、V1.2.7 版本在“机载电脑 fcu_core 工程”、“安装
+以及配置 cuda”、“配置 realsense（深度相机相关
+驱动）”、“全部工程自动运行”、“开机自启
+动”及“启用 VINS（VSLAM）定位”章节均有更
+新。 
+V2.1.8 2025.8.16      1、更新了“ROS1 安装” 章节，增加了说明，对其中
+的“（1）配置 rosdep”进行了完善。（P2，点击跳
+转）    
+LINK: http://www.fancinnov.com/
+
+===== PAGE 2 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 2 页 共 36 页 
+ 
+V2.1.9 2025.10.9      1、更新了“启用 VINS（VSLAM）定位” 章节，对其
+中的“2、烧录固件”进行了完善。（P21，点击跳
+转）    
+V2.2.1 2025.11.22      1、更新了“配置 realsense（深度相机相关驱动）” 章
+节，对其中的“6 和 7”进行了完善。（P10，点击
+跳转）    
+V2.2.2 2025.11.27      1、更新了“配置 realsense（深度相机相关驱动）” 章
+节，对其中的“6”进行了完善。（P10，点击跳
+转）    
+V2.2.3 2026.3.12      1、将“配置 RealSense（深度相机相关驱动）”章节移
+动至“配置 cv_bridge 功能包”章节之后。（P12，点
+击跳转）   
+2、同时对“开机自启动”章节进行了更新，并完善了结
+尾部分的相关说明。（P20，点击跳转）    
+ 
+V2.2.4 2026.7.15      1、新增“不启用 VINS（VSLAM）定位”章节，并完
+善了无人机下视光流定位说明。（P20，点击跳转）    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+LINK: http://www.fancinnov.com/
+
+===== PAGE 3 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 3 页 共 36 页 
+ 
+系统版本 
+UBUNTU 版本 20.04 
+ROS1 安装 
+说明：① 系统已预装 ROS1，无需重复安装，可直接跳过 ROS1 安装步骤。 
+      ② 如何确认系统已安装 ROS1： 
+         第一步：打开终端，输入命令：roscore 
+         第二步：查看运行结果，如下图： 
+ 
+ 
+(1)配置源 
+终端输入：wget http://fishros.com/install -O fishros && . fishros 
+然后会出现以下界面： 
+1、输入指令：roscore 
+2、运行结果出现：started core service , 
+说明 ros1 安装成功 
+LINK: http://www.fancinnov.com/
+
+===== PAGE 4 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 4 页 共 36 页 
+ 
+ 
+ 接着 ，输入数字 5，回车，一键配置系统源 
+ 
+输入数字 2，回车，更换系统源并清理第三方源 
+ 
+ 输入数字 1，回车，添加 ROS/ROS2 源 
+(2)安装 ROS 
+终端输入：wget http://fishros.com/install -O fishros && . fishros 
+然后会出现以下界面： 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 5 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 5 页 共 36 页 
+ 
+ 
+ 然后我们输入 1 一键安装 –> 不更换源安装 –> 选择你 ubuntu 版本对应的 ros
+版本(这里我们选择 ROS1 的 noetic) –> 桌面版进行安装 
+(3)配置 rosdep 
+source ~/.bashrc 
+sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-
+essential 
+sudo rosdep init 
+rosdep update 
+ 
+到这里已完成 ROS1 安装。 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 6 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 6 页 共 36 页 
+ 
+安装超级终端 
+便于同时运行多个程序，可以进行横向纵向分割 
+sudo apt-get install terminator -y 
+ 
+机载电脑 fcu_core 工程 
+开启新终端： 
+（1）mkdir ros_ws 
+（2）cd ros_ws 
+（3）mkdir src 
+（4）cd src 
+（5）git clone https://gitee.com/fancinnov/fcu_core.git 
+（6）git clone https://gitee.com/fancinnov/quadrotor_msgs.git 
+（7）sudo apt-get install ros-noetic-serial 
+（8）sudo apt-get install libeigen3-dev 
+（9）修改 fcu_core 工程的 fcu_bridge_001.cpp 文件，注意可以直接用幻思提供
+的已修改好的文件替换原工程文件，原工程路径为 ros_ws/src/fcu_core/src。 
+（10）在工作空间：catkin_make 
+如果用幻思提供的已配好的 fcu_bridge_001.cpp 文件进行替换后，可以忽略下述
+配置。 
+ 
+Fcu_bridge_001.cpp 文件 
+1. 参数配置： 
+ 
+static bool simple_target=true;// true 表示目标只有位置，没有速度和加速度 
+ 
+2. IMU 坐标对齐： 
+
+LINK: http://www.fancinnov.com/
+LINK: https://gitee.com/fancinnov/fcu_core.git
+LINK: https://gitee.com/fancinnov/quadrotor_msgs.git
+
+===== PAGE 7 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 7 页 共 36 页 
+ 
+ 
+原始的 y,z,x 对应于发布的 x,y,z; 
+ 
+3. Ego 里程计坐标对齐： 
+ 
+姿态和位置都要对齐 
+ 
+4. VINS 里程计坐标系对齐： 
+ 
+原始的 x,y,z 对应于 y,x,-z；原始的 yaw 对应于-yaw; 
+ 
+5. ROS 话题调整： 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 8 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 8 页 共 36 页 
+ 
+ 
+ 
+ 
+安装以及配置 cuda 
+1. 添加源 
+sudo gedit /etc/apt/sources.list.d/nvidia-l4t-apt-source.list 
+加下面两行进去 
+deb http://repo.download.nvidia.com/jetson/common r35.4 main 
+deb http://repo.download.nvidia.com/jetson/t234 r35.4 main 
+ 
+2. 更新源 
+sudo apt update 
+ 
+3. 装 jetson 包 
+sudo apt install nvidia-jetpack 
+ 
+4. 配置环境变量 
+gedit ~/.bashrc 
+下面添加： 
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64 
+export PATH=/usr/local/cuda/bin:$PATH 
+export CUDA_HOME=/usr/local/cuda 
+ 
+5. 更新环境变量 
+source ~/.bashrc 
+ 
+
+LINK: http://www.fancinnov.com/
+LINK: http://repo.download.nvidia.com/jetson/common%20r35
+LINK: http://repo.download.nvidia.com/jetson/t234%20r35
+
+===== PAGE 9 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 9 页 共 36 页 
+ 
+6. 复制文件到 cuda 目录 
+cd /usr/include && sudo cp cudnn* /usr/local/cuda/include 
+cd /usr/lib/aarch64-linux-gnu && sudo cp libcudnn* /usr/local/cuda/lib64 
+ 
+7. 查看 cuda 
+nvcc -V (出现下述信息代表安装 cuda 成功) 
+ 
+8. 安装 jtop（便于查询系统情况） 
+sudo apt install python3-pip 
+sudo -H pip3 install -U pip 
+sudo -H pip install jetson-stats 
+使用如下指令运行 
+jtop 
+ 
+安装 opencv4.6.0 with cuda 以支持 vins 的 GPU 加速 
+下载地址：Release OpenCV 4.6.0 · opencv/opencv 
+扩展模块：Release 4.6.0 · opencv/opencv_contrib 
+（如果网不好，这两个依赖库也可以用幻思提供的） 
+解压放在 home 路径即可 
+确定 Jetson Orin NX 的算力为 8.7 
+ 
+cd opencv-4.6.0/ 
+mkdir build && cd build （如果用幻思的库，已经存在 build 文件夹，只需要 cd build） 
+预编译 opencv 4.6.0 及其扩展模块 opencv_contrib-4.6.0，生成 Makefiles 文件 
+ 
+
+LINK: http://www.fancinnov.com/
+LINK: https://github.com/opencv/opencv/releases/tag/4.6.0
+LINK: https://github.com/opencv/opencv_contrib/releases/tag/4.6.0
+
+===== PAGE 10 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 10 页 共 36 页 
+ 
+cmake -D CMAKE_BUILD_TYPE=RELEASE \ 
+        -D CMAKE_INSTALL_PREFIX=/usr/local/ \ 
+        -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.6.0/modules \ 
+        -D WITH_CUDA=ON \ 
+        -D CUDA_ARCH_BIN=8.7 \ 
+        -D CUDA_ARCH_PTX="" \ 
+        -D ENABLE_FAST_MATH=ON \ 
+        -D CUDA_FAST_MATH=ON \ 
+        -D WITH_CUBLAS=ON \ 
+        -D WITH_LIBV4L=ON \ 
+        -D WITH_GSTREAMER=ON \ 
+        -D WITH_GSTREAMER_0_10=OFF \ 
+        -D WITH_QT=ON \ 
+        -D WITH_OPENGL=ON \ 
+        -D CUDA_NVCC_FLAGS="--expt-relaxed-constexpr" \ 
+        -D WITH_TBB=ON \ 
+.. 
+ 
+其中 
+CMAKE_INSTALL_PREFIX=/usr/local/ 为安装地址， 
+OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.6.0/modules 为扩展模块所在路
+径， 
+CUDA_ARCH_BIN=8.7 为 GPU 算力， 
+编译完成后如下所示 
+LINK: http://www.fancinnov.com/
+
+===== PAGE 11 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 11 页 共 36 页 
+ 
+ 
+然后 make install 编译安装 opencv 4.6.0 及其扩展模块 opencv_contrib-4.6.0 
+sudo make install -j8 
+安装完成后用 
+jtop 
+查看版本 
+  
+配置 cv_bridge 功能包 
+创建一个 ROS 的工作空间 
+mkdir -p ~/catkin_pkg/src/ 
+cd ~/catkin_pkg/src/ 
+下载对应版本的源码（如果网不好，这个功能包也可以用幻思提供的） 
+git clone https://github.com/ros-perception/vision_opencv.git -b noetic 
+cd ~/catkin_pkg/src/vision_opencv/cv_bridge/ 
+gedit ./CMakeLists.txt 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 12 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 12 页 共 36 页 
+ 
+在 CMakeLists.txt 文件添加自己安装的带 GPU 加速的 OpenCV 的 build 文件的
+路径（幻思提供的已经配置好了，直接跳过此步进行编译即可）。 
+include("~/opencv-4.6.0/build/OpenCVConfig.cmake") 
+ 
+保存后编译该功能包，终端输入 
+cd ~/catkin_pkg/ 
+catkin_make 
+编译完成后将其路径添加到 ~/.bashrc 文件中，并刷新环境变量 
+echo "source ~/catkin_pkg/devel/setup.bash" >> ~/.bashrc 
+source ~/.bashrc 
+ 
+配置 realsense（深度相机相关驱动） 
+1. clone 源码 
+git clone https://github.com/IntelRealSense/librealsense.git 
+如果下载失败可以用幻思库里的 
+2. 安装所需的包以及编译源码 
+cd librealsense 
+sudo apt-get update 
+sudo apt-get install git cmake libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev 
+sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev 
+mkdir build（如果用幻思提供的软件包，这个 build 已经存在，跳过此步） 
+cd build 
+cmake ../ (这一步如果网不好多试几次) 
+make -j8 
+sudo make install 
+
+LINK: http://www.fancinnov.com/
+LINK: https://github.com/IntelRealSense/librealsense.git
+
+===== PAGE 13 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 13 页 共 36 页 
+ 
+3. 配置 USB 规则 
+cd .. 
+sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/ 
+sudo udevadm control --reload-rules 
+sudo udevadm trigger 
+ 
+4. 验证安装 
+rs-enumerate-devices   # 成功的话会列出设备信息 
+realsense-viewer       # 查看视频流 
+ 
+5. 安装对应的 python 包 
+pip install pyrealsense2 
+ 
+6. 编译 realsense 的 ros 工程 
+sudo apt-get install ros-noetic-ddynamic-reconfigure 
+cd realsense_ws 
+catkin_make 
+ 
+7. 启动相机 ros 工程： 
+source devel/setup.bash 
+roslaunch realsense2_camera rs_camera.launch 
+ 
+VINS-Fusion-GPU 的编译和运行 
+编译安装 ceres-solver-1.14.0： 
+wget ceres-solver.org/ceres-solver-1.14.0.tar.gz 
+tar -zxvf ceres-solver-1.14.0.tar.gz 
+ 
+# google-glog + gflags 
+LINK: http://www.fancinnov.com/
+
+===== PAGE 14 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 14 页 共 36 页 
+ 
+sudo apt-get install libgoogle-glog-dev libgflags-dev 
+# Use ATLAS for BLAS & LAPACK 
+sudo apt-get install libatlas-base-dev 
+# Eigen3 
+sudo apt-get install libeigen3-dev 
+ 
+cd ~/ceres-solver-1.14.0 
+ 
+mkdir build && cd build （如果用幻思的库，已经存在 build 文件夹，只需要 cd build） 
+cmake .. 
+ 
+sudo make install -j8 
+ 
+编译安装 vin-fusion-gpu 
+#创建工作空间 
+mkdir -p ~/vins-fusion-gpu/src/ 
+cd ~/vins-fusion-gpu/src/ 
+ 
+如果直接下载幻思库中的 vin-fusion-gpu 无需进行下面配置，可以直接编译 
+cd ~/vins-fusion-gpu/ 
+catkin_make 
+#clone 源码 
+git clone https://github.com/pjrambo/VINS-Fusion-gpu.git 
+ 
+#修改 vins_estimator/CMakeLists.txt 文件，注释一行； 
+#include(/home/dji/opencv/build/OpenCVConfig.cmake) 
+ 
+#设置 OpenCV 路径为带有 GPU 加速的 opencv 4.6.0  
+include("~/opencv-4.6.0/build/OpenCVConfig.cmake") 
+LINK: http://www.fancinnov.com/
+
+===== PAGE 15 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 15 页 共 36 页 
+ 
+ 
+#修改 loop_fusion/CMakeLists.txt 文件,注释一行： 
+#include(/home/dji/opencv/build/OpenCVConfig.cmake) 
+ 
+#设置 OpenCV 路径为带有 GPU 加速的 opencv 4.6.0 
+include("~/opencv-4.6.0/build/OpenCVConfig.cmake") 
+ 
+此时直接编译会报错，需要修改版本兼容问题，按如下步骤操作即可编译成
+功： 
+cd ~/vins-fusion-gpu/src/VINS-Fusion-gpu 
+ 
+sed -i 's/CV_FONT_HERSHEY_SIMPLEX/cv::FONT_HERSHEY_SIMPLEX/g' `grep CV_FONT_HERSHEY_SIMPLEX -rl ./` 
+sed -i 's/CV_LOAD_IMAGE_GRAYSCALE/cv::IMREAD_GRAYSCALE/g' `grep CV_LOAD_IMAGE_GRAYSCALE -rl ./` 
+sed -i 's/CV_BGR2GRAY/cv::COLOR_BGR2GRAY/g' `grep CV_BGR2GRAY -rl ./` 
+sed -i 's/CV_RGB2GRAY/cv::COLOR_RGB2GRAY/g' `grep CV_RGB2GRAY -rl ./` 
+sed -i 's/CV_GRAY2RGB/cv::COLOR_GRAY2RGB/g' `grep CV_GRAY2RGB -rl ./` 
+sed -i 's/CV_GRAY2BGR/cv::COLOR_GRAY2BGR/g' `grep CV_GRAY2BGR -rl ./` 
+sed -i 's/CV_CALIB_CB_ADAPTIVE_THRESH/cv::CALIB_CB_ADAPTIVE_THRESH/g' `grep CV_CALIB_CB_ADAPTIVE_THRESH -rl ./` 
+sed -i 's/CV_CALIB_CB_NORMALIZE_IMAGE/cv::CALIB_CB_NORMALIZE_IMAGE/g' `grep CV_CALIB_CB_NORMALIZE_IMAGE -rl ./` 
+sed -i 's/CV_CALIB_CB_FILTER_QUADS/cv::CALIB_CB_FILTER_QUADS/g' `grep CV_CALIB_CB_FILTER_QUADS -rl ./` 
+sed -i 's/CV_CALIB_CB_FAST_CHECK/cv::CALIB_CB_FAST_CHECK/g' `grep CV_CALIB_CB_FAST_CHECK -rl ./` 
+sed -i 's/CV_ADAPTIVE_THRESH_MEAN_C/cv::ADAPTIVE_THRESH_MEAN_C/g' `grep CV_ADAPTIVE_THRESH_MEAN_C -rl ./` 
+sed -i 's/CV_THRESH_BINARY/cv::THRESH_BINARY/g' `grep CV_THRESH_BINARY -rl ./` 
+sed -i 's/CV_SHAPE_CROSS/cv::MORPH_CROSS/g' `grep CV_SHAPE_CROSS -rl ./` 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 16 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 16 页 共 36 页 
+ 
+sed -i 's/CV_SHAPE_RECT/cv::MORPH_RECT/g' `grep CV_SHAPE_RECT -rl ./` 
+sed -i 's/CV_TERMCRIT_EPS/cv::TermCriteria::EPS/g' `grep CV_TERMCRIT_EPS -rl ./` 
+sed -i 's/CV_TERMCRIT_ITER/cv::TermCriteria::MAX_ITER/g' `grep CV_TERMCRIT_ITER -rl ./` 
+sed -i 's/CV_RETR_CCOMP/cv::RETR_CCOMP/g' `grep CV_RETR_CCOMP -rl ./` 
+sed -i 's/CV_CHAIN_APPROX_SIMPLE/cv::CHAIN_APPROX_SIMPLE/g' `grep CV_CHAIN_APPROX_SIMPLE -rl ./` 
+sed -i 's/CV_AA/cv::LINE_AA/g' `grep CV_AA -rl ./` 
+sed -i 's/CV_LOAD_IMAGE_UNCHANGED/cv::IMREAD_UNCHANGED/g' `grep CV_LOAD_IMAGE_UNCHANGED -rl ./` 
+sed -i 's/CV_MINMAX/cv::NORM_MINMAX/g' `grep CV_MINMAX -rl ./` 
+ 
+cd ~/vins-fusion-gpu/ 
+catkin_make 
+配置 ego-planner 
+安装必要的包： 
+sudo apt-get install libarmadillo-dev 
+sudo apt-get install ros-noetic-cv-bridge 
+sudo apt-get install ros-noetic-cmake-modules 
+ 
+直接复制幻思库中的 ego-planner 到 home 路径 
+ 
+编译以及运行（要在 vins-fusion 运行起来后在运行 ego-planner 工程）： 
+cd ego-planner 
+catkin_make -DCMAKE_BUILD_TYPE=Release 
+ 
+source devel/setup.bash 
+roslaunch ego_planner simple_run_vins.launch 
+ 
+LINK: http://www.fancinnov.com/
+
+===== PAGE 17 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 17 页 共 36 页 
+ 
+全部工程自动运行 
+配置串口可执行权限： 
+用如下指令把权限配置文件复制到目录/etc/udev/rules.d/中 
+sudo cp 70-ttyusb.rules /etc/udev/rules.d/ 
+重启电脑后生效 
+ 
+sh auto_ap.sh 
+注意这个脚本的最后一段程序我们注释掉了，它是启动 vins 的 rviz 界面，注释
+掉的目的是如果允许这个 rviz 会影响 vins 实时性，只有静态测试时可以把注释
+掉的程序运行，如果在飞行过程中，这段程序必须注释掉禁止运行。 
+开机自启动 
+（1）配置 ubuntu 系统 auto login 
+ 
+（2）配置自启动文件 auto_ap.sh 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 18 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 18 页 共 36 页 
+ 
+注意文件中的工程路径是否与自己的一致，不一致的自己修改一下。 
+（3）终端输入 sh auto_ap.sh 
+检测 slam 工程是否在一分钟内正常启动 
+（4）配置 auto_ap.sh 开机自动运行 
+ 
+打开 Startup Application 
+ 
+点击 add 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 19 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 19 页 共 36 页 
+ 
+ 
+先填个 Name，再点 Browse 选择 auto_ap.sh 文件，选好后在“Command”栏路径
+前加上“sh ”（注意空格），例如：sh /xxxx/auto_ap.sh。 
+ 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 20 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 20 页 共 36 页 
+ 
+此时已完成开机自启动配置 
+（5）必须把 Jetson NX 的功率设置为 MAXN 
+ 
+重启系统验证一下吧！看看 slam 界面有没有在开机 1 分钟内正常运行。 
+注意到此为止不会出现点云地图，需要完成下一步中的飞控串口波特率设置后
+才会出现点云地图！ 
+ 
+不启用 VINS（VSLAM）定位 
+注： 
+1. 是否启用 VINS 定位，请先联系幻思创新工程师对实际使用环境进行评
+估。 
+2. VINS 定位对环境要求较高，相机视野内需具备充足光照和丰富、稳定
+的纹理特征。若现场环境光照不足、纹理较少或特征不明显，则不建议
+启用 VINS 定位，以免影响定位效果。 
+ 
+当现场环境不满足 VINS 定位要求时，建议采用本方案，即关闭 VINS 定位，
+使用无人机下视光流定位作为替代方案。下视光流定位仅需保证飞行区域地面
+具有一定的纹理特征，即可实现稳定、可靠的定位。 
+ 
+本方案的配置步骤如下： 
+（1） 修改 auto_ap.sh 开机自启动脚本。 
+LINK: http://www.fancinnov.com/
+
+===== PAGE 21 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 21 页 共 36 页 
+ 
+ 
+把框出来的部分（vins 的开机自启动程序）注释掉。 
+（2） 烧录飞控固件到光流定位模式： 
+最新固件请参照官网—>“下载中心—> FanciSwarm™ 固件及依赖包”（点击跳
+转）。直接烧录官网下载的默认固件即可。 
+（3） App 配置波特率： 
+请按照官网教程—>“用户手册—> FanciSwarm® 智能套件—> 参数配置”（点
+击跳转）将参数列表中的串口 1 波特率设置为 460800。 
+ 
+启用 VINS（VSLAM）定位（固件版本号≥V7.1.8-2025032001） 
+注： 
+1、要求无人机固件版本号高于或等于 V7.1.8-2025032001； 
+2、如果固件版本低于 V7.1.8-2025032001，请务必更新至最新版本； 
+3、最新固件请参照官网—>“下载中心—> FanciSwarm™ 固件及依赖包”
+（点击跳转）。 
+ 
+1、配置飞控固件参数 
+请参照官网教程—>“高级开发指南—> 工程开发指南”（点击跳转），在
+固件工程 Clibrary/include/config.h（点击跳转）文件中，将以下 5 个参数配置为
+
+LINK: http://www.fancinnov.com/
+LINK: https://www.fancinnov.com/download-FanciSwarm-after1120
+LINK: https://www.fancinnov.com/download-FanciSwarm-after1120
+LINK: https://www.fancinnov.com/support-FanciSwarm-JetsonOrin.html
+LINK: https://www.fancinnov.com/support-FanciSwarm-JetsonOrin.html
+LINK: https://www.fancinnov.com/download-FanciSwarm-after1120.php
+LINK: https://www.fancinnov.com/download-FanciSwarm-after1120.php
+LINK: https://www.fancinnov.com/develop-FanciSwarm-after1120.html
+LINK: https://github.com/fancinnov/Mcontroller-v7-FanciSwarm/blob/main/Clibrary/include/config.h
+
+===== PAGE 22 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 22 页 共 36 页 
+ 
+下图所示的值（其中 USE_VINS 宏定义：使用 VINS 时设为 1，不使用时设为 
+0。此处需使用 VINS，因此配置为 1）。 
+特别注意： 
+（1）下图中的串口波特率（#define COMM_1_BANDRATE）需通过 App
+进行配置，代码里配置无效！ 
+（固件版本号≥V7.1.8-2025042201，App 版本号≥V1.3.4） 
+（2）App 配置波特率步骤：请按照官网教程—>“用户手册—> 
+FanciSwarm® 智能套件—> 参数配置”（点击跳转）将参数列表中的串口 1 波
+特率设置为 460800。 
+ 
+配置完成后，请务必重新编译。 
+2、烧录固件 
+请参照官网教程—>“高级开发指南—> 程序烧录指南”（点击跳转）将上
+一步中编译生成的固件烧录到无人机中。 
+烧录固件后，我们重启机载电脑，由于已经配置好了开机自启动，fcu_core, 
+vins, ego 会自动运行起来，如果我们在 vins 的 rviz 界面能看到特征点和轨迹，
+证明我们固件参数已经正确配置。 
+3、PID 调参 
+注意！ 
+最新版本固件的串口波特率需通过 App 进行配置，此处配置无效！ 
+LINK: http://www.fancinnov.com/
+LINK: https://www.fancinnov.com/support-FanciSwarm-JetsonOrin.html
+LINK: https://www.fancinnov.com/support-FanciSwarm-JetsonOrin.html
+LINK: https://www.fancinnov.com/develop-FanciSwarm-after1120.html
+
+===== PAGE 23 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 23 页 共 36 页 
+ 
+请按照官网教程—>“用户手册—> FanciSwarm® 智能套件—> 参数配置”
+（点击跳转）将参数列表中的 Roll 速率 P 调到 0.09，Pitch 速率 P 调到 0.09，
+如下图： 
+ 
+4、VINS 调参 
+VINS-Fusion-gpu/config/realsense_d435i 文件夹中有三个 yaml 文件: 
+left.yawl 
+right.yaml 
+realsense_stereo_imu_config.yaml 
+其中，left.yawl 和 right.yaml 需要配置相机内参 
+fx=fy 
+内参通过相机话题的/camera/infra1/camera_info 和/camera/infra2/camera_info 查
+看 
+rostopic echo /camera/infra1/camera_info 
+rostopic echo /camera/infra2/camera_info 
+看其中的 K 矩阵，从前到后四个非零参数分别为 fx, cx, fy, cy; 
+
+LINK: http://www.fancinnov.com/
+LINK: https://www.fancinnov.com/support-FanciSwarm-JetsonOrin.html
+LINK: https://www.fancinnov.com/support-FanciSwarm-JetsonOrin.html
+
+===== PAGE 24 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 24 页 共 36 页 
+ 
+一般两个摄像头的参数是相同的。 
+ 
+进一步配置 realsense_stereo_imu_config.yaml 
+ 
+这里所有参数都要配置。 
+注意 output_path 后面的路径需要按自己 output 文件夹的实际路径填写！ 
+下面需要标定相机外参。 
+ 
+首先在文件 realsense_stereo_imu_config.yaml 的 82 行配置一个存储路径，例如
+在 HOME 路径中建一个 vins_output 文件夹。注意我们工程可以通过 auto_ap.sh
+脚本全部运行，运行后 fcu_core 终端会输出 vins 的轨迹坐标和偏航角。vins 标
+定方式是先在我们工程提供的默认的参数上按相机安装位置调整好矩阵初始参
+数，然后在启动 vins 工程后拿起飞机在光照和纹理良好的环境中走一圈。（注
+意走一圈过程中，相机镜头要朝向光照和纹理良好的开阔区域）如果走一圈回
+来以后 vins 没有发散，那么在 vins_output 文件夹中的 extrinsic_parameter.csv 文
+件中是最佳标定参数。把这个文件用文本编辑器打开，其中参数矩阵复制后填
+入 realsense_stereo_imu_config.yaml。 
+重复以上步骤，直到无人机在走一圈的前后的 vins 轨迹没有明显偏差，此时的
+参数就是优化到最佳的参数。 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 25 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 25 页 共 36 页 
+ 
+ 
+其它参数保持我们工程文件中的默认配置无需修改。 
+ 
+use_gpu 和 use_gpu_acc_flow 都为 1 才能实现最佳 GPU 加速 
+注意 pose_graph_save_path 后面的路径需要按自己 output 文件夹的实际路径填
+写！ 
+ 
+VINS 调参结束后，我们用无人机的电池供电，启动无人机，连接显示器，等待
+所有机载电脑工程运行起来。拿起飞机在房间中远距离走几圈后，将机载电脑
+重新连接显示屏，检查 fcu_core 工程终端输出的 VINS 原始坐标和 RViz 界面中
+的轨迹坐标是一致的。如果不一致，说明配置得不对，可以联系幻思创新的工
+程师寻求协助。 
+特别注意: 
+刚启动 VINS 要缓慢晃一晃使其完成初始化，看 fcu_core 工程输出的 vins 坐标
+飘不飘，飘了就重新启动。 
+ 
+5、飞行测试（测试定位源） 
+（1）有专业飞手（姿态模式起飞） 
+特别注意！使用遥控器操控前请务必仔细阅读“FanciSwarm® 飞行前检
+查”一节。 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 26 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 26 页 共 36 页 
+ 
+姿态模式是一种对操控者要求较高的无人机飞行模式，适用于有一定飞行
+经验的用户。在此模式下，遥控器 CH7 三段开关需要调至 上档位 以启用该
+功能。 
+如果操控者飞行经验不足，严禁使用姿态模式进行飞行，以免因操作不当
+导致无人机失控。 
+请参照 官网教程—>“快速入门指南—> FanciSwarm/ FanciSwarm Pro 飞行
+—> 使用遥控器飞行—> 特别说明 2”（点击跳转）。  
+（注：只需按照①和②操作，③在当前阶段无需执行，请跳过。 ） 
+ 
+ 
+（2）无专业飞手（定点模式起飞） 
+特别注意！使用遥控器操控前请务必仔细阅读“FanciSwarm® 飞行前检
+查”一节。 
+定点模式，即遥控器 CH7 三段开关调到中间档位。 
+请参照 官网教程—>“快速入门指南—> FanciSwarm/ FanciSwarm Pro 飞行
+—> 使用遥控器飞行”（点击跳转）。  
+（注：在定点模式下，具有飞行经验的用户可随时将 CH7 三段开关切换至上
+档位，进入姿态模式，以便在测试过程中及时控制无人机，防止因异常情况导
+致失控。） 
+
+LINK: http://www.fancinnov.com/
+LINK: https://www.fancinnov.com/support-FanciSwarm-JetsonOrin.html
+LINK: https://www.fancinnov.com/support-FanciSwarm-JetsonOrin.html
+LINK: https://www.fancinnov.com/support-FanciSwarm-JetsonOrin.html
+LINK: https://www.fancinnov.com/support-FanciSwarm-JetsonOrin.html
+
+===== PAGE 27 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 27 页 共 36 页 
+ 
+EGO 调参 
+在 planner/plan_manage/launch 文件夹中调两个文件 
+simple_run_vins.launch 
+odom 话题，相机话题，相机内参，最大速度，最大加速度是关键参数。 
+ 
+ 
+advanced_param.xml 
+膨胀半径 obstacles_inflation 按照飞机尺寸设置 
+ 
+虚拟天花板 virtual_ceil_height 设置为 1.0 米，不让飞机飞太高 
+ 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 28 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 28 页 共 36 页 
+ 
+启用 EGO 和下发目标点 
+1、说明 
+启用 EGO 和下发目标点的操作共分为 17 个步骤。请严格按照以下步骤执
+行操作。其中，下发目标点的步骤需使用个人电脑完成。 
+ 
+2、飞行测试 
+为了方便操作和查看无人机的状态，建议用户使用遥控器进行飞行控制，
+同时通过 FanciSwarm Pro App 查看无人机实时状态数据，以提升飞行体验和
+安全性。 
+请参照 官网教程—>“快速入门指南—> FanciSwarm/ FanciSwarm Pro 飞行
+—> 使用遥控器飞行”（点击跳转）。 特别注意！使用遥控器操控前请务必仔
+细阅读“FanciSwarm® 飞行前检查”一节。 
+只有在确认无人机飞行稳定后，方可继续进行下一步。 
+ 
+3、启用 VINS（VSLAM）定位（若已启用，请跳过此步骤） 
+按照上述章节“启用 VINS（VSLAM）定位”的 1、2、3、4 步骤和
+“EGO 调参”进行操作。 
+请确保无人机飞行状态稳定后，再继续执行下一步操作。 
+ 
+4、配置组网模块（飞多机集群需要配置，飞单机无需配置） 
+该步骤确定的 IP 地址将在 7、配置通信节点参数 中使用。 
+  （1）如果仅飞一架飞机，无需进行额外配置。在后续步骤中，可直接使用
+个人电脑连接飞机的默认 IP 地址：192.168.4.1。 
+   （2）如果飞多架飞机（飞集群），请参照官网教程—>“集群开发指南—> 
+③ 配置组网模块”（点击跳转）。 
+ 
+5、配置个人电脑环境（若已配置完成，请跳过此步骤） 
+LINK: http://www.fancinnov.com/
+LINK: https://www.fancinnov.com/support-FanciSwarm-JetsonOrin.html
+LINK: https://www.fancinnov.com/support-FanciSwarm-JetsonOrin.html
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+
+===== PAGE 29 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 29 页 共 36 页 
+ 
+该步骤用于配置 个人电脑（远程电脑）环境，而非无人机的机载电脑。请
+注意区分两者，避免误操作。 
+配置教程请参照官网教程—>“集群开发指南—> ④ 配置电脑环境”（点
+击跳转）。 
+ 
+6、导入 ROS 工程 
+请参照官网教程—>“集群开发指南—> ⑤ 导入 ROS 工程”（点击跳
+转）。 
+ 
+7、配置通信节点参数 
+（1）飞单机 
+首先，打开刚导入的 ROS 工程（fcu_core 文件）的 fcu_bridge_001.cpp（点
+击跳转）文件。在文件顶部可以看到参数配置变量，请将这些变量按照下图所
+示进行配置： 
+ 
+其中，根据 4、配置组网模块——飞单机 的说明，参数“DRONE_IP”应
+填写为“192.168.4.1”， 即飞机的默认 IP 地址。 
+ 
+（2）多无人机通信节点参数配置说明（以三机集群协同为例） 
+同时飞 3 架飞机，需要运行 3 个通信节点： 
+（a）通信节点 001（对应于 ROS 工程中的 fcu_bridge_001.cpp 文件）; 
+（b）通信节点 002（对应于 ROS 工程中的 fcu_bridge_002.cpp 文件）; 
+（c）通信节点 003（对应于 ROS 工程中的 fcu_bridge_003.cpp 文件）。 
+因此需要对 3 个通信节点的参数进行配置。 
+
+LINK: http://www.fancinnov.com/
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+LINK: https://github.com/fancinnov/fcu_core/blob/main/src/fcu_bridge_001.cpp
+LINK: https://github.com/fancinnov/fcu_core/blob/main/src/fcu_bridge_001.cpp
+
+===== PAGE 30 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 30 页 共 36 页 
+ 
+以配置通信节点 001（fcu_bridge_001.cpp 文件）为例进行讲解，配置过程
+请参照（1）飞单机 中的步骤，其中参数“DRONE_IP”应填入 4、配置组网
+模块——飞多架飞机 中配置的组网模块的 IP 地址。 
+注意： 
+fcu_bridge_001.cpp、fcu_bridge_002.cpp、fcu_bridge_003.cpp 中的参数
+“DRONE_IP”为 FanciSwarm 无人机网络通信的 IP，用户需要填入 4、配置
+组网模块——飞多架飞机 中配置的组网模块的 IP 地址，三个通信节点（3 台
+无人机）对应三个 ip 地址，请一一对应。 
+ 
+8、目标点设定与开发 
+目标点在 ROS 工程 fcu_mission.cpp（点击跳转）文件中定义。 
+特别说明： 
+（1）坐标系的原点为机载电脑 slam 启动时的位置点； 
+（2）坐标系的 X 轴方向是 slam 启动时的机头朝向； 
+（3）坐标系的 Y 轴方向 X 轴方向右侧的 90 度； 
+（4）坐标系的 Z 轴方向垂直向下，为了和高度方向统一，特意将目标点的
+Z 坐标设置为高度。 
+ 
+ 
+ 
+（1）飞单机 
+在 fcu_mission.cpp（点击跳转）文件中的 void execute_mission_001(void)函
+数内，用户可以根据需求定义目标点的坐标（单位：米）。下图展示了示例中
+包含的 4 个目标点的坐标值，用户可根据实际需求进行自定义配置。 
+LINK: http://www.fancinnov.com/
+LINK: https://github.com/fancinnov/fcu_core/blob/main/src/fcu_mission.cpp
+LINK: https://github.com/fancinnov/fcu_core/blob/main/src/fcu_mission.cpp
+
+===== PAGE 31 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 31 页 共 36 页 
+ 
+ 
+ 
+（2）多无人机目标点配置说明（以三机集群协同为例） 
+在多无人机任务中，用户可以通过设定各通信节点的目标点来实现协同飞
+行。 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 32 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 32 页 共 36 页 
+ 
+任务代码包含以下三个通信节点和对应函数： 
+ • 通信节点 001（1 号无人机）：void execute_mission_001(void) 
+ • 通信节点 002（2 号无人机）：void execute_mission_002(void) 
+ • 通信节点 003（3 号无人机）：void execute_mission_003(void) 
+用户只需参考 void execute_mission_001(void) 的代码结构和目标点设定逻
+辑，在 void execute_mission_002(void) 和 void execute_mission_003(void) 中实
+现类似的目标点配置即可。 
+ 
+9、编译 ROS 工程 
+请参照官网教程—>“集群开发指南—> ⑧ 编译 ROS 工程”（点击跳
+转）。 
+ 
+10、开启无人机 
+启动无人机后，将其放置在水平面上，确保机尾朝向操控者。 
+ 
+11、运行 ROS 工程 
+请参照官网教程—>“集群开发指南—> ⑬ 运行 ROS 工程”（点击跳
+转）。 
+ 
+12、检查轨迹 
+拿起飞机走一圈，并通过 RViz 界面检查轨迹的正确性。在确认轨迹显示
+无误后，方可进入后续操作步骤。 
+ 
+ 
+13、清除 RViz 界面轨迹 
+ 请参照官网教程—>“集群开发指南—> ⑰ 清除 RViz 界面轨迹”（点击
+跳转）。 
+LINK: http://www.fancinnov.com/
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+
+===== PAGE 33 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 33 页 共 36 页 
+ 
+ 
+14、飞行测试（通过键盘一键下发指令） 
+使用键盘输入指令字符下发控制指令，分别测试每架无人机的“一键起飞”
+和“一键降落”功能。请按照以下步骤进行操作。 
+第一步：无人机解锁 
+在解锁前，特别注意以下事项： 
+   （1）在无人机启动提示音结束后，将飞机垂直拿起（拿起一次即可），拿
+到距离地面超过 1m 后放下。如果激光测距工作正常，解锁才能顺利进行，否
+则 FanciSwarm 会发出“滴滴滴...”的报警音，同时，固件强制锁定，不允许起
+飞。 
+（2）FanciSwarm App 与 ROS 不能同时连接无人机，同一时刻 App 与
+ROS 只能连一个; 
+（3）遥控器和 ROS 可同时连接无人机，建议保持两者连接，以便在测试
+过程中异常时迅速切换为遥控器控制，防止失控。 在同时连接的情况下，若用
+户想通过 ROS 控制无人机，则需将遥控器的控制模式切换至自主模式档位
+（ROS 用或者机载电脑用）；相反，若用户想直接使用遥控器来控制无人机，
+则需将遥控器的控制模式调整至位置模式档位（定点）。 
+ 
+（4）遥控器油门始终有效，当油门低于 0.4 时，飞机会下降；当油门高于
+0.6 时，飞机会上升；当油门在 0.4-0.6 之间时，飞机会保持悬停状态。若用户
+希望无人机的飞行的高度由 ROS 控制，则需确保遥控器的油门持续保持在 0.4
+至 0.6 的范围内，以此避免遥控器油门对飞机高度控制的干扰。 
+完成上述检查后： 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 34 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 34 页 共 36 页 
+ 
+（1）确保已运行 ROS 工程； 
+（2）在连接遥控器的情况下，并确保遥控器的控制模式切换至自主模式
+档位（ROS 用或者机载电脑用）。 
+在终端输入字母“a”，然后按下“回车键”（无需在输入“a”后立即按回
+车）。终端界面将显示“解锁”字样。如下图所示： 
+ 
+此时，无人机启动，并伴随着启动声音，无人机完成解锁。 
+ 
+第二步：一键起飞 
+在终端输入“t”， 然后按下“回车键”（无需在输入“t”后立即按回车）。终端
+界面将显示“起飞”字样，如下图所示： 
+ 
+此时， FanciSwarm® 无人机起飞到一定高度（起飞高度可在 FanciSwarm 
+App 中设置）并悬停。 
+ 
+第三步：一键降落 
+在终端输入“l”（小写的 L）， 然后按下“回车键”（无需在输入“l”后立即
+按回车）。终端界面将显示“降落”字样，如下图所示： 
+ 
+此时，FanciSwarm® 无人机开始降落，并着陆。 
+ 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 35 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 35 页 共 36 页 
+ 
+第四步：无人机锁定 
+特别注意：一键锁定为强制指令，飞行过程中如触发该指令，将导致无人
+机立即坠落。请谨慎操作！ 
+等待 FanciSwarm® 无人机着陆后，在终端输入“d”，然后按下“回车键”（无
+需输入“d”后立即按回车）。终端界面将显示“锁定”字样，如下图所示： 
+ 
+请确保此步骤顺利完成后，再继续执行下一步操作。 
+ 
+15、下发目标点 
+通过键盘输入指令字符下发目标点，请依照以下步骤操作。 
+第一步：无人机解锁 
+请参照 上一节——14、飞行测试。 
+ 
+第二步：一键起飞 
+请参照 上一节——14、飞行测试。 
+ 
+第三步：下方发目标点 
+在终端输入“1”（数字 1）， 然后按下“回车键”（无需在输入“1”后立即按
+回车），即可完成下发 8、目标点设定与开发 中的第 1 个目标点。 
+同理，在终端输入“4”（数字 4）， 然后按下“回车键”（无需在输入“4”后
+立即按回车），即可完成下发 8、目标点设定与开发 中的第 4 个目标点。 
+ 
+第四步：一键降落 
+请参照 上一节——14、飞行测试。 
+ 
+第五步：无人机锁定 
+
+LINK: http://www.fancinnov.com/
+
+===== PAGE 36 =====
+幻思创新（北京）智控科技有限公司（www.fancinnov.com）       VINS-ROS-EGO 工程开发指南 V2.2.4 
+ 
+第 36 页 共 36 页 
+ 
+请参照 上一节——14、飞行测试。 
+ 
+特别说明： 
+所有指令字符均定义在 fcu_command.cpp（点击跳转）中定义，用户
+可参考源码进行自定义操作。 
+ 
+16、退出 ROS 工程 
+请参照官网教程—>“集群开发指南—> ㉑ 退出 ROS 工程”（点击跳
+转）。 
+ 
+17、关闭无人机 
+FanciSwarm® 无人机锁定后，如果不继续飞行，请及时关闭每台无人机并
+拔掉电池，以避免电量损耗，节省电池电量。 
+ 
+至此，“启用 EGO 并下发目标点”的飞行过程已全部完成。 
+ 
+LINK: http://www.fancinnov.com/
+LINK: https://github.com/fancinnov/fcu_core/blob/main/src/fcu_command.cpp
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021
+LINK: https://www.fancinnov.com/support-FanciSwarm.html#swarm-fanciswarm1021

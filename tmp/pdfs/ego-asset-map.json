@@ -1,0 +1,163 @@
+[
+  {
+    "old": "图片.png",
+    "new": "ros-core-check.png"
+  },
+  {
+    "old": "图片(1).png",
+    "new": "fishros-main-menu.png"
+  },
+  {
+    "old": "图片(2).png",
+    "new": "fishros-system-source.png"
+  },
+  {
+    "old": "图片(3).png",
+    "new": "fishros-add-ros-source.png"
+  },
+  {
+    "old": "图片(4).png",
+    "new": null,
+    "duplicateOf": "fishros-main-menu.png"
+  },
+  {
+    "old": "图片(5).png",
+    "new": "fcu-bridge-onboard-parameters.png"
+  },
+  {
+    "old": "图片(6).png",
+    "new": "fcu-bridge-imu-alignment.png"
+  },
+  {
+    "old": "图片(7).png",
+    "new": "fcu-bridge-ego-odometry.png"
+  },
+  {
+    "old": "图片(8).png",
+    "new": "fcu-bridge-vins-odometry.png"
+  },
+  {
+    "old": "图片(9).png",
+    "new": "fcu-bridge-ros-topics.png"
+  },
+  {
+    "old": "图片(10).png",
+    "new": "cuda-version-check.png"
+  },
+  {
+    "old": "图片(11).png",
+    "new": "jetson-gpu-compute-capability.png"
+  },
+  {
+    "old": "图片(12).png",
+    "new": "opencv-cmake-result.png"
+  },
+  {
+    "old": "图片(13).png",
+    "new": "opencv-cuda-check.png"
+  },
+  {
+    "old": "图片(14).png",
+    "new": "cv-bridge-opencv-config.png"
+  },
+  {
+    "old": "图片(15).png",
+    "new": "vins-estimator-opencv-config.png"
+  },
+  {
+    "old": "图片(16).png",
+    "new": "vins-loop-fusion-opencv-config.png"
+  },
+  {
+    "old": "图片(17).png",
+    "new": "ubuntu-auto-login.png"
+  },
+  {
+    "old": "图片(18).png",
+    "new": "ubuntu-applications.png"
+  },
+  {
+    "old": "图片(19).png",
+    "new": "startup-applications-search.png"
+  },
+  {
+    "old": "图片(20).png",
+    "new": "startup-applications-add.png"
+  },
+  {
+    "old": "图片(21).png",
+    "new": "startup-script-select.png"
+  },
+  {
+    "old": "图片(22).png",
+    "new": "vins-disable-autostart.png"
+  },
+  {
+    "old": "图片(23).png",
+    "new": "vins-flight-controller-config.png"
+  },
+  {
+    "old": "图片(24).png",
+    "new": "vins-roll-pitch-pid.png"
+  },
+  {
+    "old": "图片(25).png",
+    "new": "vins-camera-intrinsics.png"
+  },
+  {
+    "old": "图片(26).png",
+    "new": "vins-stereo-imu-config.png"
+  },
+  {
+    "old": "图片(27).png",
+    "new": "vins-camera-extrinsics.png"
+  },
+  {
+    "old": "图片(28).png",
+    "new": "vins-gpu-output-config.png"
+  },
+  {
+    "old": "图片(29).png",
+    "new": "rc-position-test-guide.png"
+  },
+  {
+    "old": "图片(30).png",
+    "new": "ego-simple-run-config.png"
+  },
+  {
+    "old": "图片(31).png",
+    "new": "ego-obstacle-inflation.png"
+  },
+  {
+    "old": "图片(32).png",
+    "new": "ego-virtual-ceiling.png"
+  },
+  {
+    "old": "图片(33).png",
+    "new": "fcu-bridge-remote-parameters.png"
+  },
+  {
+    "old": "图片(34).png",
+    "new": "ego-waypoints-example-1.png"
+  },
+  {
+    "old": "图片(35).png",
+    "new": "rc-control-mode-switches.png"
+  },
+  {
+    "old": "图片(36).png",
+    "new": "ros-command-arm.png"
+  },
+  {
+    "old": "图片(37).png",
+    "new": "ros-command-takeoff.png"
+  },
+  {
+    "old": "图片(38).png",
+    "new": "ros-command-land.png"
+  },
+  {
+    "old": "图片(39).png",
+    "new": "ros-command-disarm.png"
+  }
+]
